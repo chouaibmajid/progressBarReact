@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import React from "react";
+import Loading from "./Components/Loading";
 function App() {
+  const [etat, setEtat] = React.useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="h-screen bg-gray-50">
+      <div className="text-center">
+        <button
+          onClick={() => {setEtat(!etat)}}
+          className="mx-auto bg-green-400 px-3 py-2 uppercase text-white font-bold hover:shadow-2xl hover:text-green-400 hover:bg-white transition duration-500 ease-in-out"
         >
-          Learn React
-        </a>
-      </header>
+          charcher la page
+        </button>
+      </div>
+      {etat && <Loading />}
     </div>
   );
 }
